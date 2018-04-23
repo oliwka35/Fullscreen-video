@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fullscreen video</title>
+  <style media="screen">
+  *{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+body{
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 1px;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+.fullscreen-video{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+video{
+  min-width: 100%;
+  min-height: 100vh;
+}
+h2{
+font-size: 30px;
+}
+.menu {
+ 	visibility: hidden;
+	width: 100%;
+	text-align: center;
+  top: 50%;
+	position: absolute;
+  z-index: 3;
+  font-size: 32px;
+}
+.menu.active {
+	opacity: 1.0;
+	visibility: visible;
+}
+.menu ul:hover > li a {
+	opacity: 0.4;
+}
+.menu ul:hover > li a:hover {
+	opacity: 1.0;
+  font-size: 35px;
+}
+.menu ul, .menu a {
+	transition: opacity 0.3s ease-in-out;
+  transition: font-size 0.3s;
+}
+li{
+  display: inline;
+  padding: 3px;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+.header-content{
+  width: 100vw;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  text-align: center;
+}
+.hide{
+opacity:0;
+visibility: hidden;}
+@media (max-width:800px) {
+  li{
+    display: block;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+       <h2>John Donalson</h2>
+     </div>
+   <div class="menu">
+     <ul>
+       <li><a href="#">Portfolio</a></li>
+       <li><a href="#">About Me</a></li>
+       <li><a href="#">Contact</a></li>
+     </ul>
+  </div>
+</header>
+ <div class="fullscreen-video">
+   <video src="hands.mp4" autoplay loop>
+   </video>
+ </div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+  function showElements(){
+    $('h2').hide();
+    $('h2').fadeIn(2000);}
+showElements();
+$("header").hover(function(){
+      	$(".menu").addClass("active");
+	  	$(".header-content").addClass("hide");
+       	 }, function () {
+	   	 $(".menu").removeClass("active");
+	   	 $(".header-content").removeClass("hide");
+     });
+</script>
+</body>
+</html>
